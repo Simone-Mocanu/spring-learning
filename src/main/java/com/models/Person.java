@@ -1,10 +1,10 @@
 package com.models;
 
 public class Person {
-  private int id;
-  private String name;
-  private int age;
-  private float weight;
+  public int id;
+  public String name;
+  public int age;
+  public float weight;
 
   @Override
   public String toString() {
