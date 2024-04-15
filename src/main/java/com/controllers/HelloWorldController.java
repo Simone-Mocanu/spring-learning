@@ -1,5 +1,8 @@
 package com.example.controllers;
 
+import com.models.Person;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,5 +45,21 @@ public class HelloWorldController {
     m.addAttribute("num2", num2);
     m.addAttribute("result", String.valueOf(result));
     return "testPage"; // you can add the .html as well
+  }
+
+  @GetMapping("/people")
+  public String showFriend(Model model) {
+    List<Person> friends = new ArrayList<Person>();
+
+    friends.add(new Person(0, "Allan", 23, 142.2f));
+    friends.add(new Person(1, "Berry", 42, 220.2f));
+    friends.add(new Person(2, "Carol", 71, 144.2f));
+    friends.add(new Person(3, "Denise", 4, 38.2f));
+    friends.add(new Person(4, "Esther", 19, 142.2f));
+
+    System.out.println(friends);
+
+    model.addAttribute("people", friends);
+    return "printFriends";
   }
 }
